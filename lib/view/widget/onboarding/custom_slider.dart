@@ -21,9 +21,9 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImpl>{
                     children: [
                       Image.asset(
                         onBoardingList[index].image!,
-                        // width: 170,
-                        // height: 200,
-                        // fit: BoxFit.fill,
+                         width: 200,
+                         height: 230,
+                         fit: BoxFit.fill,
                       ),
                       const SizedBox(
                         height: 60,
@@ -33,6 +33,7 @@ class CustomSliderOnBoarding extends GetView<OnBoardingControllerImpl>{
                         onBoardingList[index].title!,
                         style:Theme.of(context).textTheme.headlineLarge
                       )),
+                      const SizedBox(height: 20,),
                       Container(
                         width: double.infinity,
                         alignment: Alignment.center,
