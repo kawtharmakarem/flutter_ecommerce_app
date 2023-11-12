@@ -5,6 +5,7 @@ import 'package:flutter_ecommerce_app/core/localization/translation.dart';
 import 'package:flutter_ecommerce_app/core/services/services.dart';
 import 'package:flutter_ecommerce_app/routes.dart';
 import 'package:flutter_ecommerce_app/view/screen/auth/login.dart';
+import 'package:flutter_ecommerce_app/view/screen/auth/signup.dart';
 import 'package:flutter_ecommerce_app/view/screen/language.dart';
 import 'package:flutter_ecommerce_app/view/screen/on_boarding.dart';
 import 'package:get/get.dart';
@@ -31,7 +32,9 @@ class MyApp extends StatelessWidget {
         fontFamily: "PlayfairDisplay",
         textTheme:const TextTheme(
           headlineLarge:  TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: AppColor.black),
-          headlineMedium: TextStyle(height: 2,color: AppColor.grey,fontWeight: FontWeight.bold,fontSize: 14)
+          headlineMedium: TextStyle(height: 2,color: AppColor.grey,fontWeight: FontWeight.bold,fontSize: 14),
+          bodyMedium: TextStyle(height: 2,color: AppColor.grey,fontWeight: FontWeight.bold,fontSize: 14),
+
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

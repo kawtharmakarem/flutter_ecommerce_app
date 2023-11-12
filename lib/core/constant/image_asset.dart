@@ -5,4 +5,6 @@ class AppImageAsset {
   static const String onBoardingImageThree =
       "$path/three.PNG";
    static const String authLogo = "$path/logoapp.png";
+      static const String logo = "$path/logo.png";
+
 }

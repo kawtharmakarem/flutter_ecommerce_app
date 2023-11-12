@@ -4,8 +4,8 @@ class CustomTextFormField extends StatelessWidget {
   final String hintText;
   final String labelText;
   final IconData iconData;
-  final TextEditingController? myController;
-  const CustomTextFormField({super.key, required this.hintText, required this.labelText, required this.iconData,this.myController});
+  final TextEditingController myController;
+  const CustomTextFormField({super.key, required this.hintText, required this.labelText, required this.iconData,required this.myController});
 
   @override
   Widget build(BuildContext context) {
