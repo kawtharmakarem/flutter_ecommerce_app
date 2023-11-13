@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/controller/auth/login_controller.dart';
+import 'package:flutter_ecommerce_app/core/constant/app_route.dart';
 import 'package:flutter_ecommerce_app/core/constant/color.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_button_auth.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_text_body.dart';
@@ -57,9 +58,14 @@ class Login extends StatelessWidget {
                 hintText: "Enter Your Password",
                 labelText: "Password",
                 iconData: Icons.lock_clock_outlined),
-            const Text(
-              "Forgot Password",
-              textAlign: TextAlign.end,
+            InkWell(
+              onTap: () {
+                controller.goToForgotPassword();
+              },
+              child: const Text(
+                "Forgot Password",
+                textAlign: TextAlign.end,
+              ),
             ),
             CustomButtonAuth(text: "Sign In", onPressed: () {}),
             const SizedBox(
