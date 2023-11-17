@@ -4,6 +4,7 @@ import 'package:flutter_ecommerce_app/core/localization/change_locale.dart';
 import 'package:flutter_ecommerce_app/core/localization/translation.dart';
 import 'package:flutter_ecommerce_app/core/services/services.dart';
 import 'package:flutter_ecommerce_app/routes.dart';
+import 'package:flutter_ecommerce_app/test.dart';
 import 'package:flutter_ecommerce_app/view/screen/auth/login.dart';
 import 'package:flutter_ecommerce_app/view/screen/auth/signup.dart';
 import 'package:flutter_ecommerce_app/view/screen/language.dart';
@@ -39,6 +40,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+           // home:const Test(),
+
       home:const Language(),
       routes: routes,
     );
