@@ -5,7 +5,7 @@ import 'package:flutter_ecommerce_app/view/widget/auth/custom_text_title.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 
-import '../../../core/constant/color.dart';
+import '../../../../core/constant/color.dart';
 
 class VerifyCode extends StatelessWidget {
   const VerifyCode({super.key});

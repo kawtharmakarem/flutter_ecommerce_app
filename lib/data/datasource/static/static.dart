@@ -1,25 +1,22 @@
 import 'package:flutter_ecommerce_app/core/constant/image_asset.dart';
 import 'package:flutter_ecommerce_app/data/model/onboarding_model.dart';
+import 'package:get/get.dart';
 
 List<OnBoardingModel> onBoardingList = [
   OnBoardingModel(
-      title: "Choose Product",
+      title: "boardingTitle1".tr,
       image: AppImageAsset.onBoardingImageOne,
       body:
-          "We Have a 100k+products.Choose \n Your product from our E-\ncommerce shop."),
+          "boarding1".tr),
   OnBoardingModel(
-      title: "Esay & Safe Payment",
+      title: "boardingTitle2".tr,
       image: AppImageAsset.onBoardingImageTwo,
       body:
-          "Easy Checkout & Safe Payment \n method. Trusted by out Customers \n from all over the world"),
+          "boarding2".tr),
   OnBoardingModel(
-      title: "Track Your Order",
+      title: "boardingTitle3".tr,
       image: AppImageAsset.onBoardingImageThree,
       body:
-          "Best Tracker has been Used For \n Track your order.You'll know where \n your product is at the moment"),
-  // OnBoardingModel(
-  //     title: "Fast Delivery",
-  //     image: AppImageAsset.onBoardingImageFour,
-  //     body:
-  //         "Reliable And Fast Delviery. We\n Deliver your product the fastest \n way possible")
+          "boarding3".tr),
+ 
 ];

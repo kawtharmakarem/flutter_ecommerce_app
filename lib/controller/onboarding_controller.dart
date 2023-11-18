@@ -1,7 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_ecommerce_app/core/constant/app_route.dart';
 import 'package:flutter_ecommerce_app/data/datasource/static/static.dart';
-import 'package:flutter_ecommerce_app/view/screen/auth/login.dart';
 import 'package:get/get.dart';
 
 abstract class OnBoardingController extends GetxController{

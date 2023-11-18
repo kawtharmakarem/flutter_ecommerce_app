@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController{
   resetPassword();
-  gotoSuccess();
+  gotoSuccessResetPassword();
 
 }
 class ResetPasswordControllerImp extends ResetPasswordController{
@@ -24,7 +24,7 @@ class ResetPasswordControllerImp extends ResetPasswordController{
   }
   
   @override
-  gotoSuccess() {
+  gotoSuccessResetPassword() {
     Get.offNamed(AppRoutes.successResetPassword);
   }
   

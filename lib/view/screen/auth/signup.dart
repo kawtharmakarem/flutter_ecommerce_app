@@ -21,7 +21,7 @@ class SignUp extends StatelessWidget {
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
         title: Text(
-          'Sign Up',
+          'register'.tr,
           style: Theme.of(context)
               .textTheme
               .headlineLarge!
@@ -32,53 +32,55 @@ class SignUp extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(
           children: [
-            const CustomTitleText(text: "Welcome Back"),
+             CustomTitleText(text: "welcome".tr),
             const SizedBox(
               height: 10,
             ),
-            const CustomBodyText(
+       CustomBodyText(
               text:
-                  "Sign Up With Email And Password Or Continue With Social Media",
+                  "signup".tr,
             ),
             const SizedBox(
               height: 10,
             ),
             CustomTextFormField(
                 myController: controller.usernameController,
-                hintText: "Enter Your Name",
-                labelText: "UserName",
+                hintText: "entername".tr,
+                labelText: "username".tr,
                 iconData: Icons.person_2_outlined),
             CustomTextFormField(
                 myController: controller.emailController,
-                hintText: "Enter Your Email",
-                labelText: "Email",
+                hintText: "enteremail".tr,
+                labelText: "email".tr,
                 iconData: Icons.email_outlined),
             CustomTextFormField(
                 myController: controller.phoneController,
-                hintText: "Enter Phone",
-                labelText: "Phone",
+                hintText: "enterphone".tr,
+                labelText: "phone".tr,
                 iconData: Icons.phone_android_outlined),
             CustomTextFormField(
                 myController: controller.passwordController,
-                hintText: "Enter Your Password",
-                labelText: "Password",
+                hintText: "enterpassword".tr,
+                labelText: "password".tr,
                 iconData: Icons.lock_clock_outlined),
             
-            CustomButtonAuth(text: "Sign Up", onPressed: () {}),
+            CustomButtonAuth(text: "register".tr, onPressed: () {
+              controller.sigup();
+            }),
             const SizedBox(
               height: 5,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Do You have an account ? "),
+                Text("dohaveaccount".tr),
                 InkWell(
                     onTap: () {
                       controller.goToSingIn();
                     },
-                    child: const Text(
-                      "Sign In",
-                      style: TextStyle(
+                    child:  Text(
+                      "login".tr,
+                      style:const TextStyle(
                           color: AppColor.primaryColor,
                           fontWeight: FontWeight.bold),
                     ))

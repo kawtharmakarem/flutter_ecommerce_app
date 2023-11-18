@@ -6,7 +6,7 @@ import 'package:flutter_ecommerce_app/view/widget/auth/custom_text_title.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_textformfield.dart';
 import 'package:get/get.dart';
 
-import '../../../core/constant/color.dart';
+import '../../../../core/constant/color.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -60,7 +60,7 @@ class ResetPassword extends StatelessWidget {
               height: 40,
             ),
                         CustomButtonAuth(text: "Save", onPressed: () {
-                          resetController.gotoSuccess();
+                          resetController.gotoSuccessResetPassword();
                         }),
 
           ],

@@ -13,7 +13,7 @@ class SignUpControllerImp extends SignUpController{
   late TextEditingController passwordController;
   @override
   sigup() {
-   
+   Get.offNamed(AppRoutes.checkEmail);
   }
 
   @override
