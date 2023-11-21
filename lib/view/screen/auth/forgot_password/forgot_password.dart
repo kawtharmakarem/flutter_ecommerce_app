@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/controller/auth/forgotpassword_controller.dart';
+import 'package:flutter_ecommerce_app/core/functions/validate_input.dart';
 import 'package:get/get.dart';
 
 import '../../../../core/constant/color.dart';
@@ -30,29 +31,35 @@ class ForgotPassword extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            CustomTitleText(text: "checkemail".tr),
-            const SizedBox(
-              height: 10,
-            ),
-             CustomBodyText(
-              text:
-                  "verifycode".tr,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomTextFormField(
-                myController: controller.emailTextEditigController,
-                hintText: "enteremail".tr,
-                labelText: "email".tr,
-                iconData: Icons.email_outlined),
-            CustomButtonAuth(text: "check".tr, onPressed: () {
-              controller.goToVerifyCode();
-            }),
-            
-          ],
+        child: Form(
+          key:controller.forgotpasswordKey ,
+          child: ListView(
+            children: [
+              CustomTitleText(text: "checkemail".tr),
+              const SizedBox(
+                height: 10,
+              ),
+               CustomBodyText(
+                text:
+                    "verifycode".tr,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextFormField(
+                  myController: controller.emailTextEditigController,
+                  valid: (val){
+                    return validateInput(val!, 5, 100, "email");
+                  },
+                  hintText: "enteremail".tr,
+                  labelText: "email".tr,
+                  iconData: Icons.email_outlined),
+              CustomButtonAuth(text: "check".tr, onPressed: () {
+                controller.goToVerifyCode();
+              }),
+              
+            ],
+          ),
         ),
       ),
     );

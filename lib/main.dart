@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerce_app/core/constant/color.dart';
 import 'package:flutter_ecommerce_app/core/localization/change_locale.dart';
 import 'package:flutter_ecommerce_app/core/localization/translation.dart';
 import 'package:flutter_ecommerce_app/core/services/services.dart';
 import 'package:flutter_ecommerce_app/routes.dart';
-import 'package:flutter_ecommerce_app/test.dart';
-import 'package:flutter_ecommerce_app/view/screen/auth/login.dart';
-import 'package:flutter_ecommerce_app/view/screen/auth/signup.dart';
 import 'package:flutter_ecommerce_app/view/screen/language.dart';
-import 'package:flutter_ecommerce_app/view/screen/on_boarding.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -29,17 +24,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: localeController.language,
       translations: MyTranslation(),
-      theme: ThemeData(
-        fontFamily: "PlayfairDisplay",
-        textTheme:const TextTheme(
-          headlineLarge:  TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: AppColor.black),
-          headlineMedium: TextStyle(height: 2,color: AppColor.grey,fontWeight: FontWeight.bold,fontSize: 14),
-          bodyMedium: TextStyle(height: 2,color: AppColor.grey,fontWeight: FontWeight.bold,fontSize: 14),
+      theme: localeController.appTheme,
 
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      
            // home:const Test(),
 
       home:const Language(),

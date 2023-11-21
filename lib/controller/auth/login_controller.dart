@@ -10,19 +10,25 @@ abstract class LoginController extends GetxController{
 class LoginControllerImp extends LoginController{
   late TextEditingController emailController;
   late TextEditingController passwordController;
+  late GlobalKey<FormState> loginKey;
   @override
   login() {
-   
+   if(loginKey.currentState!.validate()){
+    print("Valid"); 
+   }else{
+    print("Not Valid");
+   }
   }
   
   @override
   goToSignUp() {
-    Get.toNamed(AppRoutes.signup);
+    Get.offNamed(AppRoutes.signup);
   }
   @override
   void onInit() {
     emailController=TextEditingController();
     passwordController=TextEditingController();
+    loginKey=GlobalKey<FormState>();
     super.onInit();
 
   }

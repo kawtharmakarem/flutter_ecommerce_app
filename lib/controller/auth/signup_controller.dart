@@ -7,13 +7,19 @@ sigup();
 goToSingIn();
 }
 class SignUpControllerImp extends SignUpController{
+     GlobalKey<FormState> formState=GlobalKey<FormState>();
+
   late TextEditingController usernameController;
   late TextEditingController emailController;
   late TextEditingController phoneController;
   late TextEditingController passwordController;
   @override
   sigup() {
-   Get.offNamed(AppRoutes.checkEmail);
+    if(formState.currentState!.validate()){
+      Get.offNamed(AppRoutes.verifyCodeSignUp);
+    }else{
+      print("Not Valid");
+    }
   }
 
   @override

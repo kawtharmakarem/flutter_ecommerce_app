@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/controller/auth/resetpassword_controller.dart';
+import 'package:flutter_ecommerce_app/core/functions/validate_input.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_button_auth.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_text_body.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_text_title.dart';
@@ -21,7 +22,7 @@ class ResetPassword extends StatelessWidget {
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
         title: Text(
-          'Reset Password',
+          'reset'.tr,
           style: Theme.of(context)
               .textTheme
               .headlineLarge!
@@ -30,40 +31,49 @@ class ResetPassword extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            const CustomTitleText(text: "New Password"),
-            const SizedBox(
-              height: 10,
-            ),
-            const CustomBodyText(text: "Please enter your New Password"),
-            const SizedBox(
-              height: 15,
-            ),
-            CustomTextFormField(
-                hintText: "Enter NewPassword",
-                labelText: "NewPassword",
-                iconData: Icons.lock_clock,
-                myController: resetController.passwordController),
-            const SizedBox(
-              height: 15,
-            ),
-            CustomTextFormField(
-                hintText: "ReEnter Passsword",
-                labelText: "RePassword",
-                iconData: Icons.lock_clock_outlined,
-                myController: resetController.rePasswordController),
-            const SizedBox(
-              height: 40,
-            ),
-                        CustomButtonAuth(text: "Save", onPressed: () {
-                          resetController.gotoSuccessResetPassword();
-                        }),
-
-          ],
+        child: Form(
+          key:resetController.resetpasswordKey ,
+          child: ListView(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+               CustomTitleText(text: "newpassword".tr),
+              const SizedBox(
+                height: 10,
+              ),
+               CustomBodyText(text: "enternewpassword".tr),
+              const SizedBox(
+                height: 15,
+              ),
+              CustomTextFormField(
+                  hintText: "enterpassword".tr,
+                  labelText: "password".tr,
+                  iconData: Icons.lock_clock,
+                  myController: resetController.passwordController,
+                  valid: (val){
+                    return validateInput(val!, 8, 30, "password");
+                  },),
+              const SizedBox(
+                height: 15,
+              ),
+              CustomTextFormField(
+                valid: (val){
+                  return validateInput(val!, 8, 30, "password");
+                },
+                  hintText: "reenterpassword".tr,
+                  labelText: "repassword".tr,
+                  iconData: Icons.lock_clock_outlined,
+                  myController: resetController.rePasswordController),
+              const SizedBox(
+                height: 40,
+              ),
+                          CustomButtonAuth(text: "save".tr, onPressed: () {
+                            resetController.gotoSuccessResetPassword();
+                          }),
+        
+            ],
+          ),
         ),
       ),
     );

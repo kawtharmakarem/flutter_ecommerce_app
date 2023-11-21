@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_ecommerce_app/controller/auth/signup_controller.dart';
+import 'package:flutter_ecommerce_app/core/functions/validate_input.dart';
 import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
@@ -14,7 +15,7 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SignUpControllerImp controller = Get.put(SignUpControllerImp());
+    Get.lazyPut(()=>SignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -28,68 +29,83 @@ class SignUp extends StatelessWidget {
               .copyWith(color: AppColor.grey),
         ),
       ),
-      body: Container(
+      body: GetBuilder<SignUpControllerImp>(builder: (controller)=>Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(
-          children: [
-             CustomTitleText(text: "welcome".tr),
-            const SizedBox(
-              height: 10,
-            ),
-       CustomBodyText(
-              text:
-                  "signup".tr,
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            CustomTextFormField(
-                myController: controller.usernameController,
-                hintText: "entername".tr,
-                labelText: "username".tr,
-                iconData: Icons.person_2_outlined),
-            CustomTextFormField(
-                myController: controller.emailController,
-                hintText: "enteremail".tr,
-                labelText: "email".tr,
-                iconData: Icons.email_outlined),
-            CustomTextFormField(
-                myController: controller.phoneController,
-                hintText: "enterphone".tr,
-                labelText: "phone".tr,
-                iconData: Icons.phone_android_outlined),
-            CustomTextFormField(
-                myController: controller.passwordController,
-                hintText: "enterpassword".tr,
-                labelText: "password".tr,
-                iconData: Icons.lock_clock_outlined),
-            
-            CustomButtonAuth(text: "register".tr, onPressed: () {
-              controller.sigup();
-            }),
-            const SizedBox(
-              height: 5,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("dohaveaccount".tr),
-                InkWell(
-                    onTap: () {
-                      controller.goToSingIn();
-                    },
-                    child:  Text(
-                      "login".tr,
-                      style:const TextStyle(
-                          color: AppColor.primaryColor,
-                          fontWeight: FontWeight.bold),
-                    ))
-              ],
-            )
-          ],
+        child: Form(
+          key: controller.formState,
+          child: ListView(
+            children: [
+               CustomTitleText(text: "welcome".tr),
+              const SizedBox(
+                height: 10,
+              ),
+               CustomBodyText(
+                text:
+                    "signup".tr,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              CustomTextFormField(
+                  myController: controller.usernameController,
+                  valid: (val) {
+                    return validateInput(val!, 3, 100, "username");
+                  },
+                  hintText: "entername".tr,
+                  labelText: "username".tr,
+                  iconData: Icons.person_2_outlined),
+              CustomTextFormField(
+                  myController: controller.emailController,
+                  valid: (String? val){
+                    return validateInput(val ?? "", 5, 100, "email");
+                  },
+                  hintText: "enteremail".tr,
+                  labelText: "email".tr,
+                  iconData: Icons.email_outlined),
+              CustomTextFormField(
+                  myController: controller.phoneController,
+                  valid: (val){
+                    return validateInput(val!, 6, 20, "phone");
+                  },
+                  hintText: "enterphone".tr,
+                  labelText: "phone".tr,
+                  iconData: Icons.phone_android_outlined),
+              CustomTextFormField(
+                  myController: controller.passwordController,
+                  valid: (val){
+                    return validateInput(val!, 3, 30, "password");
+                  },
+                  hintText: "enterpassword".tr,
+                  labelText: "password".tr,
+                  iconData: Icons.lock_clock_outlined),
+              
+              CustomButtonAuth(text: "register".tr, onPressed: () {
+                controller.sigup();
+              }),
+              const SizedBox(
+                height: 5,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("dohaveaccount".tr),
+                  InkWell(
+                      onTap: () {
+                        controller.goToSingIn();
+                      },
+                      child:  Text(
+                        "login".tr,
+                        style:const TextStyle(
+                            color: AppColor.primaryColor,
+                            fontWeight: FontWeight.bold),
+                      ))
+                ],
+              )
+            ],
+          ),
         ),
-      ),
+      ),)
     );
-    ;
+    
   }
 }

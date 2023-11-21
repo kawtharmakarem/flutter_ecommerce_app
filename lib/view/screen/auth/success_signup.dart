@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_app/controller/auth/success_signup_controller.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_button_auth.dart';
+import 'package:get/get.dart';
 
 import '../../../core/constant/color.dart';
 
@@ -8,13 +10,14 @@ class SuccessSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SuccessSignUpControllerImp controller=Get.put(SuccessSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
         title: Text(
-          'Success',
+          'success'.tr,
           style: Theme.of(context)
               .textTheme
               .headlineLarge!
@@ -25,12 +28,13 @@ class SuccessSignUp extends StatelessWidget {
         child:Column(
           children: [
           const  Center(child:  Icon(Icons.check_circle_outline,size: 150,color: AppColor.primaryColor,)),
-            const Center(child: Text("Successfully SignUp")),
+            Center(child: Text("congrate".tr,style: Theme.of(context).textTheme.headlineLarge,)),
+            Center(child: Text("successregister".tr)),
            const Spacer(),
             Container(
               width: double.infinity,
-              child: CustomButtonAuth(text: "Go To Login", onPressed: (){
-            
+              child: CustomButtonAuth(text: "gotologin".tr, onPressed: (){
+                controller.goToLoginPage();
               }),
             ),
             const SizedBox(height: 40,)
