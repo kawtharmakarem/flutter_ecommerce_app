@@ -55,7 +55,11 @@ class MyTranslation extends Translations {
           "phonevalid":"رقم الهاتف غير صالح",
           "less":"يجب أن لا تكون أقل من ",
           "large":"لا يجب أن يكون أكبر من ",
-          "isempty":"لا يمكن أن يكون فارغ"
+          "isempty":"لا يمكن أن يكون فارغ",
+          "warning":"تنبيه",
+          "existornot":"هل تريد الخروج من التطبيق ؟",
+          "confirm":"تأكيد",
+          "cancel":"رفض"
         },
         "en": {
           "chooseLang": "Choose Language",
@@ -110,7 +114,12 @@ class MyTranslation extends Translations {
           "phonevalid":"Phone Number is Not Valid",
           "less":"Must Not Be Less Than ",
           "large":"Must Not Be Larger Than ",
-          "isempty":"Can't Be Empty "
+          "isempty":"Can't Be Empty ",
+          "warning":"Warning",
+          "existornot":"Would you want to go out ?",
+          "confirm":"Confirm",
+          "cancel":"Cancel"
+
 
         }
       };

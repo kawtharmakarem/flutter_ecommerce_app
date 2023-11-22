@@ -48,6 +48,7 @@ class ForgotPassword extends StatelessWidget {
               ),
               CustomTextFormField(
                   myController: controller.emailTextEditigController,
+                  isNumber: false,
                   valid: (val){
                     return validateInput(val!, 5, 100, "email");
                   },

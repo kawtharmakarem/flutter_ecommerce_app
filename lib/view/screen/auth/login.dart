@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/controller/auth/login_controller.dart';
 import 'package:flutter_ecommerce_app/core/constant/color.dart';
+import 'package:flutter_ecommerce_app/core/functions/alert_exit.dart';
 import 'package:flutter_ecommerce_app/core/functions/validate_input.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_button_auth.dart';
 import 'package:flutter_ecommerce_app/view/widget/auth/custom_text_body.dart';
@@ -29,7 +30,9 @@ class Login extends StatelessWidget {
               .copyWith(color: AppColor.grey),
         ),
       ),
-      body: Container(
+      body: WillPopScope(
+        onWillPop: alertExitApp,
+        child: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
         child: Form(
           key: controller.loginKey,
@@ -52,20 +55,26 @@ class Login extends StatelessWidget {
               ),
               CustomTextFormField(
                 myController: controller.emailController,
+                isNumber: false,
                 valid: (val){
                   return validateInput(val!, 5, 100, "email");
                 },
                   hintText: "enteremail".tr,
                   labelText: "email".tr,
                   iconData: Icons.email_outlined),
-               CustomTextFormField(
+              GetBuilder<LoginControllerImp>(builder: (controller) =>  CustomTextFormField(
                 myController: controller.passwordController,
+                obscureText: controller.isShowPassword,
+                onTapIcon: (){
+                  controller.ShowPassword();
+                },
+                isNumber: false,
                 valid: (val){
                   return validateInput(val!, 3, 30, "password");
                 },
                   hintText: "enterpassword".tr,
                   labelText: "password".tr,
-                  iconData: Icons.lock_clock_outlined),
+                  iconData: Icons.lock_clock_outlined),),
               InkWell(
                 onTap: () {
                   controller.goToForgotPassword();
@@ -87,7 +96,7 @@ class Login extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      ), )
     );
   }
 }

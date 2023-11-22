@@ -47,6 +47,8 @@ class ResetPassword extends StatelessWidget {
                 height: 15,
               ),
               CustomTextFormField(
+                isNumber: false,
+                obscureText: true,
                   hintText: "enterpassword".tr,
                   labelText: "password".tr,
                   iconData: Icons.lock_clock,
@@ -58,6 +60,8 @@ class ResetPassword extends StatelessWidget {
                 height: 15,
               ),
               CustomTextFormField(
+                obscureText: true,
+                isNumber:false ,
                 valid: (val){
                   return validateInput(val!, 8, 30, "password");
                 },

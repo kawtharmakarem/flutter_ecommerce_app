@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_app/binding.dart';
 import 'package:flutter_ecommerce_app/core/localization/change_locale.dart';
 import 'package:flutter_ecommerce_app/core/localization/translation.dart';
 import 'package:flutter_ecommerce_app/core/services/services.dart';
@@ -26,11 +27,10 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       theme: localeController.appTheme,
 
-      
+      initialBinding: MyBinding(),
            // home:const Test(),
 
-      home:const Language(),
-      routes: routes,
+      getPages: routes,
     );
   }
 }

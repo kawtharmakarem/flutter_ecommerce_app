@@ -10,7 +10,14 @@ abstract class LoginController extends GetxController{
 class LoginControllerImp extends LoginController{
   late TextEditingController emailController;
   late TextEditingController passwordController;
-  late GlobalKey<FormState> loginKey;
+   GlobalKey<FormState> loginKey=GlobalKey<FormState>();
+   bool isShowPassword=true;
+
+   ShowPassword(){
+    isShowPassword=!isShowPassword;
+    update();
+   }
+
   @override
   login() {
    if(loginKey.currentState!.validate()){
@@ -26,10 +33,11 @@ class LoginControllerImp extends LoginController{
   }
   @override
   void onInit() {
+
     emailController=TextEditingController();
     passwordController=TextEditingController();
-    loginKey=GlobalKey<FormState>();
-    super.onInit();
+            super.onInit();
+
 
   }
   @override

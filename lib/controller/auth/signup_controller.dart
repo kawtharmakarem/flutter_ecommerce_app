@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/core/constant/app_route.dart';
+import 'package:flutter_ecommerce_app/view/screen/auth/verifycode_signup.dart';
 import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController{
-sigup();
+signup();
 goToSingIn();
 }
 class SignUpControllerImp extends SignUpController{
@@ -14,9 +15,9 @@ class SignUpControllerImp extends SignUpController{
   late TextEditingController phoneController;
   late TextEditingController passwordController;
   @override
-  sigup() {
+  signup() {
     if(formState.currentState!.validate()){
-      Get.offNamed(AppRoutes.verifyCodeSignUp);
+     Get.offNamed(AppRoutes.verifyCodeSignUp);
     }else{
       print("Not Valid");
     }
