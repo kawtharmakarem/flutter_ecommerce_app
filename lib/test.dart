@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/core/constant/color.dart';
+import 'package:flutter_ecommerce_app/core/functions/check_internet.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class Test extends StatefulWidget {
@@ -10,6 +11,17 @@ class Test extends StatefulWidget {
 }
 
 class _TestState extends State<Test> {
+  var res;
+  initialData() async{
+    res=await checkInternet();
+        print(res);
+
+  }
+  @override
+  void initState() {
+    initialData();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
