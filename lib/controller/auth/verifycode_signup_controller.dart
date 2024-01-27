@@ -8,6 +8,7 @@ goTosuccesSignUp();
 }
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController{
   late String verifyCode;
+  String? email;
   
   @override
   checkCode() {
@@ -17,5 +18,11 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController{
   @override
   goTosuccesSignUp() {
     Get.offNamed(AppRoutes.successSignUp);
+  }
+  @override
+  void onInit() {
+
+    Get.arguments['email'];
+    super.onInit();
   }
 }

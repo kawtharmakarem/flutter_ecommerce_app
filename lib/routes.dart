@@ -17,12 +17,12 @@ import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes=[
 
-        GetPage(name: "/", page: ()=>const TestView()),
+       // GetPage(name: "/", page: ()=>const TestView()),
 
 
-  // GetPage(name: "/", page: ()=>const Language(),middlewares: [
-  //   MyMiddleWare()
-  // ]),
+  GetPage(name: "/", page: ()=>const Language(),middlewares: [
+    MyMiddleWare()
+  ]),
     GetPage(name:  AppRoutes.onBoarding, page: ()=>const OnBoarding()),
         GetPage(name: AppRoutes.login, page: ()=>const Login()),
 
